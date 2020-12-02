@@ -102,6 +102,8 @@ func proxify(connection *net.TCPConn) {
 	remote, err := net.Dial("tcp", addr)
 	if err != nil {
 		log.Printf("Connection to remote host error: %s", err.Error())
+
+		return
 	}
 
 	fmt.Fprintf(remote, "%s\r\n", req) // Sending request to server
